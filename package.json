@@ -1,0 +1,19 @@
+{
+    "name": "dnd-hexmap",
+    "version": "1.0.0",
+    "description": "A small self hostable webpage for a Dungeons & Dragons hexagon map",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JostMK/DnD-HexMap.git"
+    },
+    "author": "JostMK",
+    "license": "GNU GPLv3",
+    "bugs": {
+        "url": "https://github.com/JostMK/DnD-HexMap/issues"
+    },
+    "homepage": "https://github.com/JostMK/DnD-HexMap#readme"
+}

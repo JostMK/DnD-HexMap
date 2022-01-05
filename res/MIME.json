@@ -1,0 +1,18 @@
+{
+    ".txt": "text/plain",
+
+    ".htm": "text/html",
+    ".html": "text/html",
+    ".css": "text/css",
+    ".js": "text/javascript",
+    ".json": "application/json",
+
+    ".avi": "video/x-msvideo",
+    ".gif": "image/gif",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".svg": "image/svg+xml",
+    ".tff": "font/ttf",
+    ".webm": "video/webm",
+    ".xml": "application/xml"
+}
