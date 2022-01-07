@@ -16,7 +16,8 @@ var contentTypes;
 module.exports = function startServer() {
     console.log('-----Starting-----');
 
-    loadFiles();
+    let dirPath = path.join(__dirname, websiteFilesPath);
+    loadFiles(dirPath);
     loadContentTypes();
 
     http.createServer((req, res) => {
@@ -44,8 +45,7 @@ function handleGetFileRequest(req, res) {
     }
 }
 
-function loadFiles() {
-    let dirPath = path.join(__dirname, websiteFilesPath);
+function loadFiles(dirPath) {
     let files = fs.readdirSync(dirPath, { withFileTypes: true });
 
     files.forEach(function(file) {
@@ -54,6 +54,9 @@ function loadFiles() {
 
             serverFiles[file.name] = data;
             console.log(`> Added ${file.name} to server files.`);
+        } else if (file.isDirectory()) {
+            let nextDirPath = path.join(dirPath, file.name);
+            loadFiles(nextDirPath);
         }
     });
 }
