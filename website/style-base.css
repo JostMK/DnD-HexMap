@@ -1,0 +1,35 @@
+:root {
+    --primary-color: rgb(187, 8, 61);
+    --primary-background-color: rgb(236, 234, 222);
+    --secondary-background-color: rgb(38, 36, 70);
+    --primary-button-color: rgb(204, 149, 77);
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    background-color: var(--primary-background-color);
+}
+
+.center-arranger {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal-arranger {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.circle-button {
+    border: none;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 100%;
+}

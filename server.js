@@ -8,6 +8,7 @@ const port = 34343;
 
 const websiteFilesPath = "./website";
 const resFolderPath = "./res";
+const savedDataFolderPath = "./data";
 
 var serverFiles = {};
 var contentTypes;
@@ -18,6 +19,7 @@ module.exports = function startServer() {
 
     let dirPath = path.join(__dirname, websiteFilesPath);
     loadFiles(dirPath);
+    loadFiles(savedDataFolderPath, 'data/');
     loadContentTypes();
 
     http.createServer((req, res) => {
@@ -45,15 +47,15 @@ function handleGetFileRequest(req, res) {
     }
 }
 
-function loadFiles(dirPath) {
+function loadFiles(dirPath, prefix = '') {
     let files = fs.readdirSync(dirPath, { withFileTypes: true });
 
     files.forEach(function(file) {
         if (file.isFile()) {
             let data = fs.readFileSync(path.join(dirPath, file.name), 'utf8');
 
-            serverFiles[file.name] = data;
-            console.log(`> Added ${file.name} to server files.`);
+            serverFiles[prefix + file.name] = data;
+            console.log(`> Added ${prefix + file.name} to server files.`);
         } else if (file.isDirectory()) {
             let nextDirPath = path.join(dirPath, file.name);
             loadFiles(nextDirPath);
